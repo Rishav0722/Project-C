@@ -1,0 +1,128 @@
+/* src/components/HeroSection.module.css */
+
+/* Hero container */
+.hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px;
+  /* Back to the solid navy blue! */
+  background-color: #0A192F;
+  color: #FFFFFF;
+  overflow: hidden;
+  min-height: 80vh;
+  text-align: center;
+}
+
+.container {
+  max-width: 800px;
+  z-index: 2; /* Sits on top of the triangles */
+  position: relative;
+}
+
+/* The Blended "Flag" Motif */
+.nepaliMotif {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Sits behind the content */
+  pointer-events: none;
+}
+
+/* The two triangles */
+.nepaliMotif::before,
+.nepaliMotif::after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-color: transparent;
+  /* Kept the slightly more visible triangles */
+  border-bottom-color: rgba(216, 0, 39, 0.15); 
+  filter: drop-shadow(0 0 10px rgba(216, 0, 39, 0.2));
+  width: 0;
+  height: 0;
+}
+
+/* Bottom Triangle */
+.nepaliMotif::before {
+  bottom: -40%;
+  left: -25%;
+  border-width: 0 45vw 65vh 45vw;
+  transform: rotate(15deg);
+}
+
+/* Top Triangle */
+.nepaliMotif::after {
+  bottom: 15%;
+  left: -15%;
+  border-width: 0 40vw 55vh 40vw;
+  transform: rotate(-20deg);
+  border-bottom-color: rgba(216, 0, 39, 0.12);
+}
+
+/* ----- Content Styling ----- */
+
+.locationTag {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 3.8rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.title .highlight {
+  color: #FF8C00; /* Marigold Orange */
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  color: #bdc8d4;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* Button Styling */
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.btnPrimary {
+  background-color: #D80027; /* Nepali Crimson */
+  color: white;
+}
+
+.btnPrimary:hover {
+  background-color: #b00020;
+}
+
+.btnSecondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btnSecondary:hover {
+  background-color: white;
+  color: #0A192F;
+}

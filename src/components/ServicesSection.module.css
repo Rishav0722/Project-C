@@ -1,0 +1,39 @@
+/* src/components/ServicesSection.module.css */
+.services {
+  /* We'll use the light gray from App.css as the background */
+  background-color: #F7F7F7;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  /* Use the Navy color for headings on light backgrounds */
+  color: #0A192F;
+  margin-bottom: 16px;
+}
+
+.sectionSubtitle {
+  font-size: 1.15rem;
+  color: #334155; /* A dark gray, not pure black */
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* For tablets and smaller */
+@media (max-width: 768px) {
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+}

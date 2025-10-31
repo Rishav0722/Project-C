@@ -1,0 +1,89 @@
+/* src/components/ServiceCard.module.css */
+.card {
+  /* We'll use the Navy color but a lighter, softer version for the card */
+  background-color: #0A192F;
+  border: 1px solid #1e293b; /* A subtle border */
+  border-radius: 12px;
+  padding: 24px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #D80027; /* Crimson border on hover */
+}
+
+/* This is a simple placeholder for the icons */
+.iconPlaceholder {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  /* Using the Marigold color for the icon background */
+  background-color: #FF8C00;
+  color: #0A192F; /* Navy icon */
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 10px 0;
+}
+
+.cardDescription {
+  font-size: 1rem;
+  color: #bdc8d4;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  /* This ensures the card height is consistent */
+  flex-grow: 1;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.featureItem {
+  font-size: 0.95rem;
+  color: #bdc8d4;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.star {
+  /* Marigold color for the star */
+  color: #FF8C00;
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.cardButton {
+  background-color: transparent;
+  border: 2px solid #D80027; /* Crimson border */
+  color: #D80027; /* Crimson text */
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+}
+
+.cardButton:hover {
+  background-color: #D80027; /* Crimson fill on hover */
+  color: #FFFFFF;
+}
