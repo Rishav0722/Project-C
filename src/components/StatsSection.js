@@ -28,7 +28,7 @@ function StatsSection() {
   */
 
   return (
-    <section className={styles.statsSection}>
+    <section id="community" className={styles.statsSection}>
       <div className={styles.iconWrapper}>
         {/* Placeholder for an icon, e.g., a community icon */}
         👥

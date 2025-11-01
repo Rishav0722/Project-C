@@ -54,7 +54,7 @@ const servicesData = [
 
 function ServicesSection() {
   return (
-    <section className={styles.services}>
+    <section id="services" className={styles.services}>
       <h2 className={styles.sectionTitle}>Four Services, One Community</h2>
       <p className={styles.sectionSubtitle}>
         Everything you need to thrive in Dallas, designed specifically for the Nepali community.

@@ -1,13 +1,11 @@
 // src/components/ServiceCard.js
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './ServiceCard.module.css';
 
-// We'll pass in an "icon" as a string for now.
-// Later, this could be an <Icon /> component.
 function ServiceCard({ icon, title, description, features, buttonText }) {
   return (
     <div className={styles.card}>
-      {/* Placeholder for an icon, styled with the accent color */}
       <div className={styles.iconPlaceholder}>{icon}</div>
 
       <h3 className={styles.cardTitle}>{title}</h3>
@@ -21,7 +19,10 @@ function ServiceCard({ icon, title, description, features, buttonText }) {
         ))}
       </ul>
       
-      <button className={styles.cardButton}>{buttonText}</button>
+      {/* The button now links to the signup page */}
+      <Link to="/signup" className={styles.cardButton}>{buttonText}</Link>
+      
+      {/* The "Already have an account?" line has been removed. */}
     </div>
   );
 }

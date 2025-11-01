@@ -1,16 +1,46 @@
 // src/App.js
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import './App.css';
+
+// Import all your components
+import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import ServicesSection from './components/ServicesSection';
-import StatsSection from './components/StatsSection'; // 1. Import it
-import './App.css';
+import StatsSection from './components/StatsSection';
+import CTASection from './components/CTASection';
+import SignUp from './components/SignUp';
+import Login from './components/Login';
+import AboutSection from './components/AboutSection';
+import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop'; // 1. Import it
+
+// This component is a "layout" for your main page
+const LandingPage = () => {
+  return (
+    <>
+      <HeroSection />
+      <ServicesSection />
+      <StatsSection />
+      <CTASection />
+    </>
+  );
+};
 
 function App() {
   return (
     <div className="App">
-      <HeroSection />
-      <ServicesSection />
-      <StatsSection /> {/* 2. Add it here */}
+      <ScrollToTop /> {/* 2. Add the component here */}
+      <Navbar /> 
+      
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/about" element={<AboutSection />} />
+      </Routes>
+      
+      <Footer />
     </div>
   );
 }
