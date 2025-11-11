@@ -1,0 +1,32 @@
+/* src/components/Discover.module.css */
+.discoverPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #F7F7F7;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0A192F;
+  margin-bottom: 30px;
+}
+
+.cardContainer {
+  width: 90vw;
+  max-width: 400px; /* Max width of a card */
+  height: 60vh; /* Fixed height */
+  max-height: 550px;
+}
+
+/* This creates the stack */
+.swipe {
+  position: absolute;
+  width: 90vw;
+  max-width: 400px;
+  height: 60vh;
+  max-height: 550px;
+}

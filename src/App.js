@@ -13,7 +13,8 @@ import SignUp from './components/SignUp';
 import Login from './components/Login';
 import AboutSection from './components/AboutSection';
 import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop'; // 1. Import it
+import ScrollToTop from './components/ScrollToTop';
+import Discover from './components/Discover'; // Import Discover
 
 // This component is a "layout" for your main page
 const LandingPage = () => {
@@ -30,7 +31,7 @@ const LandingPage = () => {
 function App() {
   return (
     <div className="App">
-      <ScrollToTop /> {/* 2. Add the component here */}
+      <ScrollToTop />
       <Navbar /> 
       
       <Routes>
@@ -38,6 +39,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<AboutSection />} />
+        <Route path="/discover" element={<Discover />} /> {/* Add the route */}
       </Routes>
       
       <Footer />

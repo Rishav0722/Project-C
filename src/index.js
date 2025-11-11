@@ -7,9 +7,10 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
+  // VVV THIS IS THE FIX VVV
+  // We must wrap the <App /> component in <BrowserRouter>
+  // so that all the Links and Routes in your app will work.
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 );
