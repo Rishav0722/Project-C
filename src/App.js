@@ -1,6 +1,6 @@
-// src/App.js
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+// VVV FIX: Import 'Switch' instead of 'Routes'
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
 
 // Import all your components
@@ -34,13 +34,26 @@ function App() {
       <ScrollToTop />
       <Navbar /> 
       
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/about" element={<AboutSection />} />
-        <Route path="/discover" element={<Discover />} /> {/* Add the route */}
-      </Routes>
+      {/* VVV FIX: Use <Switch> instead of <Routes> */}
+      <Switch>
+        {/* VVV FIX: Change 'element' prop to component render */}
+        <Route path="/signup">
+          <SignUp />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/about">
+          <AboutSection />
+        </Route>
+        <Route path="/discover">
+          <Discover />
+        </Route>
+        {/* VVV FIX: The generic '/' route must be LAST */}
+        <Route path="/">
+          <LandingPage />
+        </Route>
+      </Switch>
       
       <Footer />
     </div>

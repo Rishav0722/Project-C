@@ -1,6 +1,5 @@
 // src/components/Discover.js
 import React, { useState } from 'react';
-import TinderCard from 'react-tinder-card';
 import ProfileCard from './ProfileCard';
 import styles from './Discover.module.css';
 
@@ -19,8 +18,6 @@ const mockUsers = [
     imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7e8fde5?ixlib=rb-4.0.3&q=80&w=1887'
   },
   {
-    // VVV THIS IS THE FIX VVV
-    // It was "id:3:" which is invalid. It is now correct.
     id: '3',
     name: 'Sona',
     bio: 'UNT student. Go Mean Green!',
@@ -30,54 +27,56 @@ const mockUsers = [
 
 function Discover() {
   const [users, setUsers] = useState(mockUsers);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const onSwipe = (direction, id) => {
-    console.log(`You swiped ${direction} on user ${id}`);
-  };
+  const currentUser = users[currentIndex];
 
-  const onCardLeftScreen = (id) => {
-    console.log(`User ${id} left the screen`);
-    // This line updates the state, removing the swiped card.
-    setUsers(prevUsers => prevUsers.filter(user => user.id !== id));
+  const handleSwipe = (direction) => {
+    console.log(`You swiped ${direction} on user ${currentUser.id}`);
+    if (currentIndex < users.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+    } else {
+      // All cards swiped
+      setCurrentIndex(0);
+    }
   };
 
   return (
     <div className={styles.discoverPage}>
       <h2 className={styles.title}>Find Your Match</h2>
 
-      <div 
-        className={styles.cardContainer} 
-        style={{ 
-          position: 'relative', 
-          width: '300px',
-          height: '400px',
-          margin: '20px auto' 
-        }}
-      >
-        {users.map((user) => (
-          <TinderCard
-            style={{ position: 'absolute' }}
-            key={user.id}
-            onSwipe={(dir) => onSwipe(dir, user.id)}
-            onCardLeftScreen={() => onCardLeftScreen(user.id)}
-            preventSwipe={['up', 'down']}
-          >
-            <div style={{ 
-              width: '300px', 
-              height: '400px', 
-              overflow: 'hidden', 
-              borderRadius: '10px', 
-              boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
-            }}>
-              <ProfileCard 
-                name={user.name} 
-                bio={user.bio}
-                imageUrl={user.imageUrl} 
-              />
-            </div>
-          </TinderCard>
-        ))}
-      </div>
+      {currentUser ? (
+        <div className={styles.cardContainer}>
+          <div className={styles.card}>
+            <ProfileCard 
+              name={currentUser.name} 
+              bio={currentUser.bio}
+              imageUrl={currentUser.imageUrl} 
+            />
+          </div>
+
+          <div className={styles.buttonGroup}>
+            <button 
+              className={styles.passBtn}
+              onClick={() => handleSwipe('left')}
+            >
+              ✗ Pass
+            </button>
+            <button 
+              className={styles.likeBtn}
+              onClick={() => handleSwipe('right')}
+            >
+              ♥ Like
+            </button>
+          </div>
+
+          <p className={styles.progress}>
+            {currentIndex + 1} / {users.length}
+          </p>
+        </div>
+      ) : (
+        <p className={styles.noMore}>No more profiles!</p>
+      )}
     </div>
   );
 }

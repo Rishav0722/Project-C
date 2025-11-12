@@ -1,11 +1,11 @@
 // src/components/StatsSection.js
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './StatsSection.module.css';
 
 function StatsSection() {
   // We use 'useState' to store our stats data.
   // The backend will send us an object with these keys.
-  const [stats, setStats] = useState({
+  const [stats] = useState({
     activeMembers: '500+', // Default placeholder
     successfulMatches: '50+', // Default placeholder
     jobPlacements: '100+', // Default placeholder
